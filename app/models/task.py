@@ -13,4 +13,4 @@ class Task(Base):
     completed = Column(Boolean, default=False)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
 
-    user = relationship("User", back_populates="task")
+    user = relationship("User", back_populates="tasks")
