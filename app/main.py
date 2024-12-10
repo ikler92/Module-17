@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from routers import task_router, user_router
+from app.backend.db import Base, engine
+from app.models import user, task  # Импорт моделей
+
+# Создание таблиц
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
-app.include_router(task_router)
-app.include_router(user_router)
 
 
 @app.get("/")

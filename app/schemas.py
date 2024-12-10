@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 
 
-# User-related schemas
 class CreateUser(BaseModel):
     username: str
     firstname: str
@@ -15,12 +14,13 @@ class UpdateUser(BaseModel):
     age: int
 
 
-# Task-related schemas
 class CreateTask(BaseModel):
     title: str
     content: str
     priority: int
 
 
-class UpdateTask(CreateTask):
-    pass
+class UpdateTask(BaseModel):
+    title: str
+    content: str
+    priority: int
